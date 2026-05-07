@@ -1,8 +1,13 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-/.pnp
+# ----- env files -----
+.env
+.env.*
+!.env.example
+
+# ----- node / pnpm -----
+node_modules/
+.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -10,33 +15,55 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+# ----- IDE / editors -----
+.idea/
+.vs/
+.vscode/
 .DS_Store
-*.pem
+*.swp
 
-# debug
+# ----- Next.js (web) -----
+web/.next/
+web/out/
+web/build/
+web/coverage/
+web/*.tsbuildinfo
+web/next-env.d.ts
+
+# ----- Expo / React Native (mobile) -----
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+mobile/node_modules/
+mobile/*.jks
+mobile/*.p8
+mobile/*.p12
+mobile/*.key
+mobile/*.mobileprovision
+mobile/*.orig.*
+mobile/android/build/
+mobile/android/.gradle/
+mobile/android/local.properties
+mobile/android/app/build/
+mobile/android/app/release/
+mobile/android/app/debug/
+mobile/ios/Pods/
+mobile/ios/build/
+
+# ----- keys (RSA / certs) -----
+*.pem
+private.b64
+private.*.b64
+
+# ----- vercel -----
+.vercel
+
+# ----- debug logs -----
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-/.vs
+# ----- misc -----
+*.tgz
+.cache/
